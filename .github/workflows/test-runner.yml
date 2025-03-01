@@ -26,7 +26,7 @@ jobs:
               run: python3 -m pytest -s tests/part_01/test_users.py --junitxml=tests/results.xml
             - name: Create test summary
 
-              uses: test-summary/actions@dist
+              uses: test-summary/action@dist
               if: success() || failure()
               with:
                 paths: tests/results.xml
