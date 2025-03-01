@@ -23,4 +23,10 @@ jobs:
                     echo "PYTHONPATH=${PYTHONPATH}"
 
             - name: Run tests
-              run: python3 -m pytest -s tests/part_01/test_users.py
+              run: python3 -m pytest -s tests/part_01/test_users.py --junitxml=tests/results.xml
+            - name: Create test summary
+
+              uses: test-summary/actions@dist
+              if: success() || failure()
+              with:
+                paths: tests/results.xml
