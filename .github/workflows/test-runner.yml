@@ -23,4 +23,4 @@ jobs:
                     echo "PYTHONPATH=${PYTHONPATH}"
 
             - name: Run tests
-              run: python3 -m pytest -s tests/part_01/test_part_01.py
+              run: python3 -m pytest -s tests/part_01/test_users.py
