@@ -18,12 +18,13 @@ jobs:
         steps:
             - name: Checkout repository
               uses: actions/checkout@v4
-
-            - name: Set up Python ${{ github.event.inputs.python_version }}
+            - name: Set up Python
               uses: actions/setup-python@v3
               with:
                 python-version: ${{ github.event.inputs.python_version }}
-
+            - name: Display Python version
+              run: |
+                  echo "Using Python version: ${{ github.event.inputs.python_version }}"
             - name: Install dependencies
               run: |
                     chmod +x -R ${{ github.workspace }}
@@ -31,7 +32,6 @@ jobs:
                     python3 -m pip install -r requirements.txt
                     export PYTHONPATH="${PYTHONPATH}:${{github.workspace}}"
                     echo "PYTHONPATH=${PYTHONPATH}"
-
             - name: Run tests
               run: python3 -m pytest -s tests/part_01/test_users.py --junitxml=tests/results.xml --html=tests/results.html
             - name: Create test summary
