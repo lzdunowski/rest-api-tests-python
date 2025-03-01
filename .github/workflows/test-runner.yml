@@ -9,6 +9,7 @@ on:
                 description: 'Python version'
                 required: true
                 default: '3.13.2'
+                type: string
     push:
     pull_request:
 
