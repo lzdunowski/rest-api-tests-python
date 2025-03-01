@@ -29,9 +29,7 @@ jobs:
               uses: test-summary/action@dist
               if: success() || failure()
               with:
-                paths: |
-                    tests/results.xml
-                    tests/results.html
+                paths: tests/results.xml
 
             - name: Upload test results
               uses: actions/upload-artifact@v4
